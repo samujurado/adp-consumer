@@ -1,0 +1,8 @@
+<h1>Hello, ADP Client!</h1>
+
+<% if @credential %>
+  <%= @credential %>
+  <%= link_to "disconnect", adp_client_disconnect_url %>
+<% else %>
+  <%= link_to "connect", adp_client_connect_url %>
+<% end %>
