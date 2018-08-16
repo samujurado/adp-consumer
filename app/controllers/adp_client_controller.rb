@@ -1,4 +1,5 @@
 class AdpClientController < ApplicationController
+  before_action :set_credential
 
   def connect
     connection = Adp.client_connection
@@ -14,10 +15,24 @@ class AdpClientController < ApplicationController
     redirect_to action: 'index'
   end
 
+  def workers
+    if session[:client_credential]
+      connection = Adp.client_connection
+      connection.connect()
+      url = 'https://test-api.adp.com/hr/v2/workers'
+      @workers = connection.get_adp_data(url)
+      render :index
+    end
+  end
+
   def index
+  end
+
+  private
+
+  def set_credential
     if session[:client_credential]
       @credential = session[:client_credential]
-      #@token = credential.token
     end
   end
 end

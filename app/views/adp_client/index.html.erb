@@ -1,8 +1,24 @@
-<h1>Hello, ADP Client!</h1>
+<code>
+  <h3>ADP Client!</h3>
 
-<% if @credential %>
-  <%= @credential %>
-  <%= link_to "disconnect", adp_client_disconnect_url %>
-<% else %>
-  <%= link_to "connect", adp_client_connect_url %>
-<% end %>
+  <% if @credential %>
+    <h4>
+      MENU:
+      <%= link_to "workers", adp_client_workers_url %> |
+      <%= link_to "disconnect", adp_client_disconnect_url %>
+    </h4>
+
+    <h4># credential</h4>
+    <%= @credential %>
+    <% if @workers %>
+      <h4># workers</h4>
+      <%= @workers %>
+    <% end %>
+
+  <% else %>
+    <h4>
+      MENU:
+      <%= link_to "connect", adp_client_connect_url %>
+    </h4>
+  <% end %>
+</code>
