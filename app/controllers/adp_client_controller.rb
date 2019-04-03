@@ -25,6 +25,16 @@ class AdpClientController < ApplicationController
     end
   end
 
+  def demographics
+    if session[:client_credential]
+      connection = Adp.client_connection
+      connection.connect()
+      url = 'https://test-api.adp.com/hr/v2/worker-demographics'
+      @demographics = connection.get_adp_data(url)
+      render :index
+    end
+  end
+
   def index
   end
 

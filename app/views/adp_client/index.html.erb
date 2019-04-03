@@ -5,6 +5,7 @@
     <h4>
       MENU:
       <%= link_to "workers", adp_client_workers_url %> |
+      <%= link_to "demographics", adp_client_demographics_url %> |
       <%= link_to "disconnect", adp_client_disconnect_url %>
     </h4>
 
@@ -13,6 +14,12 @@
     <% if @workers %>
       <h4># workers</h4>
       <%= @workers %>
+    <% end %>
+    <% if @demographics %>
+      <h4># demographics</h4>
+      <%= @demographics %>
+    <% else %>
+      <%= @demographics %>
     <% end %>
 
   <% else %>

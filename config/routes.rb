@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'adp_client/connect'
   get 'adp_client/disconnect'
   get 'adp_client/workers'
+  get 'adp_client/demographics'
 
   root 'adp_client#index'
 end
