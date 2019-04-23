@@ -4,13 +4,19 @@
   <% if @credential %>
     <h4>
       MENU:
+      <%= link_to "subscription", adp_client_subscription_url %> |
       <%= link_to "workers", adp_client_workers_url %> |
       <%= link_to "demographics", adp_client_demographics_url %> |
+      <%= link_to "events", adp_client_events_url %> |
       <%= link_to "disconnect", adp_client_disconnect_url %>
     </h4>
 
     <h4># credential</h4>
     <%= @credential %>
+    <% if @subscription %>
+      <h4># subscription</h4>
+      <%= @subscription %>
+    <% end %>
     <% if @workers %>
       <h4># workers</h4>
       <%= @workers %>
@@ -18,8 +24,10 @@
     <% if @demographics %>
       <h4># demographics</h4>
       <%= @demographics %>
-    <% else %>
-      <%= @demographics %>
+    <% end %>
+    <% if @events %>
+      <h4># events</h4>
+      <%= @events %>
     <% end %>
 
   <% else %>
